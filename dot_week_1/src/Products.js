@@ -4,11 +4,11 @@ import Product from "./Product";
 const Products = () => {
 
     return (
-        <div className="container">
+        <div className="container mt-5">
 
             <div className="row">
                 {
-                    data_home.map(item => <Product item={item} />)
+                    data_home.map(item => <Product key={item.id} item={item} />)
                 }
             </div>
 

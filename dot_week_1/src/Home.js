@@ -1,11 +1,14 @@
-const Home = ()=>
-{
-    return (
-        <div className="container">
-                <h1>
-                Home Heading
+import { Link } from "react-router-dom";
 
-                </h1>
+const Home = () => {
+    return (
+        <div className="container mt-5">
+            <h1>
+               Home Screen 
+            </h1>
+            <Link to={"/products"}>
+             Products
+            </Link>
 
         </div>
     )
