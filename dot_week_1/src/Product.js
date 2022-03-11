@@ -1,6 +1,10 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "./actions/productAction";
 
-const Product = (props) => {
+const Product = (props) => 
+{
+    const dispatch =  useDispatch();
     const { item } = props;
     return (
         <div className="col-md-4 col-lg-3 col-xs-12 col-sm-6 mb-3 ">
@@ -22,7 +26,8 @@ const Product = (props) => {
                             </Link>
                             <button className="btn btn-outline-primary" onClick={()=>
                             {
-
+                                
+                                dispatch(addToCart(item.id));
                                     
                             }}>
                                 Add to Card

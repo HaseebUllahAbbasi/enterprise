@@ -11,15 +11,13 @@ const Products = () =>
         dispatch(getAllProducts())
 
     },[dispatch])
-    const products = useSelector(state=> state.products);
-    console.log(products) 
-    
+    const {  products} = useSelector(state=> state.productReducer);
     return (
         <div className="container mt-5">
 
             <div className="row">
                 {
-                    data_home.map(item => <Product key={item.id} item={item} />)
+                    products.map(item => <Product key={item.id} item={item} />)
                 }
             </div>
 
