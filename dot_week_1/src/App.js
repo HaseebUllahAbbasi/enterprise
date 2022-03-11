@@ -7,7 +7,6 @@ import ProductDetail from './ProductDetails';
 // import { useSelector, useDispatch } from 'react-redux';
 import Header from './Header';
 import About from './About';
-
 function App() {
 
   return (

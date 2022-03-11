@@ -1,8 +1,19 @@
 import data_home from "./home_data";
 import Product from "./Product";
+import {useDispatch,useSelector} from 'react-redux'
+import { useEffect } from "react";
+import { getAllProducts } from "./actions/productAction";
+const Products = () => 
+{
+    const dispatch = useDispatch();
+    useEffect(()=>
+    {
+        dispatch(getAllProducts())
 
-const Products = () => {
-
+    },[dispatch])
+    const products = useSelector(state=> state.products);
+    console.log(products) 
+    
     return (
         <div className="container mt-5">
 
