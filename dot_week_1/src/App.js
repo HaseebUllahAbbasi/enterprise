@@ -7,9 +7,12 @@ import ProductDetail from './ProductDetails';
 // import { useSelector, useDispatch } from 'react-redux';
 import Header from './Header';
 import About from './About';
+import store from './store';
+import { addData } from './actions';
 
-function App() {
-
+function App() 
+{
+  store.dispatch(addData());
   return (
     <Router>
     <Header/>
@@ -18,11 +21,8 @@ function App() {
         <Route path='/products' element={<Products />} />
         <Route path='/product/:id' element={<ProductDetail />} />
         <Route path='/about' element={<About />} />
-        
       </Routes>
     </Router>
-
   );
 }
-
 export default App;
