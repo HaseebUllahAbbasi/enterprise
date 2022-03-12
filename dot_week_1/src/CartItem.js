@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart } from "./actions/productAction";
 
-const Product = (props) => 
+const CartItem = (props) => 
 {
     const dispatch =  useDispatch();
     const { item } = props;
@@ -26,11 +26,27 @@ const Product = (props) =>
                             </Link>
                             <button className="btn btn-outline-primary" onClick={()=>
                             {
-                                if(item.present>0)
-                                dispatch(addToCart(item.id));
-                                    else alert("no stock avaiable for this account");
+                                // dispatch(addToCart(item.id));
+                                    // else alert("no stock avaiable for this account");
+                                
                             }}>
-                                Add to Card
+                               +
+                            </button>
+                            <button className="btn btn-outline-primary" onClick={()=>
+                            {
+                                // dispatch(addToCart(item.id));
+                                    // else alert("no stock avaiable for this account");
+                                
+                            }}>
+                               -
+                            </button>
+                            <button className="btn btn-outline-primary" onClick={()=>
+                            {
+                                // dispatch(addToCart(item.id));
+                                    // else alert("no stock avaiable for this account");
+                                
+                            }}>
+                               remove
                             </button>
 
                         </div>
@@ -42,4 +58,4 @@ const Product = (props) =>
 
     )
 }
-export default Product;
+export default CartItem;

@@ -7,6 +7,7 @@ import ProductDetail from './ProductDetails';
 // import { useSelector, useDispatch } from 'react-redux';
 import Header from './Header';
 import About from './About';
+import Cart from './Cart';
 function App() {
 
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route path='/products' element={<Products />} />
         <Route path='/product/:id' element={<ProductDetail />} />
         <Route path='/about' element={<About />} />
-        
+        <Route path='/cart' element={ <Cart/>} />
+
       </Routes>
     </Router>
 
