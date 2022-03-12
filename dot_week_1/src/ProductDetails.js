@@ -1,9 +1,9 @@
 // import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import data_home from "./home_data";
-import store from "./store";
 
-const ProductDetail = (props) => {
+const ProductDetail = (props) => 
+{
     const { id } = useParams();
     const product = data_home.filter(item => item.id === id)
     return (

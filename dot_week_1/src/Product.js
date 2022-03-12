@@ -1,6 +1,10 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "./actions/productAction";
 
-const Product = (props) => {
+const Product = (props) => 
+{
+    const dispatch =  useDispatch();
     const { item } = props;
     return (
         <div className="col-md-4 col-lg-3 col-xs-12 col-sm-6 mb-3 ">
@@ -12,7 +16,11 @@ const Product = (props) => {
                 <div className="card-body" style={{ backgroundColor: "ButtonFace" }}>
                     <h5 className="card-title">{item.name}</h5>
                     <div className="card-body ">
-                        <div className="d-flex justify-content-around">
+                        <div>
+                            Available Stock : {item.present
+                            }
+                        </div>
+                        <div className="d-flex justify-content-between">
 
                             <Link to={`/product/${item.id}`}>
                             <button className="btn btn-outline-success ">
@@ -22,8 +30,9 @@ const Product = (props) => {
                             </Link>
                             <button className="btn btn-outline-primary" onClick={()=>
                             {
-
-                                    
+                                if(item.present>0)
+                                dispatch(addToCart(item.id));
+                                    else alert("no stock avaiable for this account");
                             }}>
                                 Add to Card
                             </button>
