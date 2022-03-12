@@ -11,7 +11,10 @@ function reducer(state = {}, action)
             case ADD_ALL:
                 {
                     console.log("data collected from redux");
+
                     return {products:[...data_home]};
+
+
                     
                 }
         default:
