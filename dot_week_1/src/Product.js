@@ -16,6 +16,10 @@ const Product = (props) =>
                 <div className="card-body" style={{ backgroundColor: "ButtonFace" }}>
                     <h5 className="card-title">{item.name}</h5>
                     <div className="card-body ">
+                        <div>
+                            Available Stock : {item.present
+                            }
+                        </div>
                         <div className="d-flex justify-content-between">
 
                             <Link to={`/product/${item.id}`}>
