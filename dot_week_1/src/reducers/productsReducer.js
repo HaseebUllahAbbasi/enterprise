@@ -2,6 +2,7 @@ import {
   ADD_ALL,
   ADD_PRODUCT,
   DECREASE_PRODUCT,
+  GET_ALL,
   INCREASE_PRODUCT,
   REMOVE_PRODUCT,
 } from "../constants/actionDefined";
@@ -11,6 +12,9 @@ export const productReducer = (state = { products: [] }, action) => {
   switch (action.type) {
     case ADD_ALL:
       return { ...state, products: [...action.payload.data], cart: [] };
+      case GET_ALL:
+        return { ...state };
+        
     case ADD_PRODUCT: {
       const id = action.payload;
       const products = [...state.products];
