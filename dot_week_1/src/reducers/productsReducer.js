@@ -56,7 +56,7 @@ export const productReducer = (state = { products: [] }, action) => {
       cart.map((item) => {
         if (item.id === id) {
           item.qty += 1;
-          item.present-=1;
+        
         }
         return item;
       });

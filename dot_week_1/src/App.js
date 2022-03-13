@@ -11,6 +11,7 @@ import Cart from './Cart';
 import Search from './Search';
 import { useEffect } from 'react';
 import { setAllProducts } from "./actions/productAction";
+import Receipt from './Receipt';
 
 function App() 
 {
@@ -30,6 +31,7 @@ function App()
         <Route path='/cart' element={ <Cart/>} />
         <Route path='/search/:term' element={ <Search/>} />
         <Route path='/search/' element={ <Search/>} />
+        <Route path='/receipt/' element={ <Receipt/>} />
 
       </Routes>
     </Router>

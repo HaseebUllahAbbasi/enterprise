@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "./CartItem";
 import Product from "./Product";
+import { Document, Page } from 'react-pdf';
+
 
 const Cart = ()=>
 {
