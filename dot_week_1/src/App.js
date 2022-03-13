@@ -12,6 +12,7 @@ import Search from './Search';
 import { useEffect } from 'react';
 import { setAllProducts } from "./actions/productAction";
 import Receipt from './Receipt';
+import Counter from './Counter';
 
 function App() 
 {
@@ -32,6 +33,10 @@ function App()
         <Route path='/search/:term' element={ <Search/>} />
         <Route path='/search/' element={ <Search/>} />
         <Route path='/receipt/' element={ <Receipt/>} />
+        
+        <Route path='/dot_prc/' element={ <Counter/>} />
+        
+
 
       </Routes>
     </Router>

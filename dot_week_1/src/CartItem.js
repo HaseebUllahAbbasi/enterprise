@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -28,43 +29,75 @@ const CartItem = (props) => {
             <div>More Available : {item.present}</div>
 
             <div className="d-flex justify-content-between">
-              <Link to={`/product/${item.id}`}>
-                <button className="btn btn-outline-success ">
-                  View Details
+              <motion.div
+                whileHover={{
+                  scale: "1.2",
+                  textShadow: "0px 0px 8px rgb(255,255,255)",
+                  boxShadow: "0px 0px 8px rgb(255,255,255)",
+                }}
+              >
+                {" "}
+                <Link to={`/product/${item.id}`}>
+                  <button className="btn btn-outline-success m-1">
+                    View Details
+                  </button>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                whileHover={{
+                  scale: "1.2",
+                  textShadow: "0px 0px 8px rgb(255,255,255)",
+                  boxShadow: "0px 0px 8px rgb(255,255,255)",
+                }}
+                className=""
+              >
+                <button
+                  className="btn btn-outline-primary m-1"
+                  onClick={() => {
+                    if (item.present > 0) dispatch(increaseProduct(item.id));
+                    else alert("no stock avaiable for this account");
+                  }}
+                >
+                  +
                 </button>
-              </Link>
-              <button
-                className="btn btn-outline-primary"
-                onClick={() => {
-                  if (item.present > 0) dispatch(increaseProduct(item.id))
-                  else alert("no stock avaiable for this account");
+              </motion.div>
+              <motion.div
+                whileHover={{
+                  scale: "1.2",
+                  textShadow: "0px 0px 8px rgb(255,255,255)",
+                  boxShadow: "0px 0px 8px rgb(255,255,255)",
                 }}
               >
-                +
-              </button>
-              <button
-                className="btn btn-outline-primary"
-                onClick={() => {
-                  if (item.qty > 1) dispatch(decreaseProduct(item.id))
-                  else {
-                    dispatch(removeProduct(item.id));
-                  }
-                  // dispatch(addToCart(item.id));
-                  // else alert("no stock avaiable for this account");
+                <button
+                  className="btn btn-outline-primary m-1"
+                  onClick={() => {
+                    if (item.qty > 1) dispatch(decreaseProduct(item.id));
+                    else {
+                      dispatch(removeProduct(item.id));
+                    }
+                  }}
+                >
+                  -
+                </button>
+              </motion.div>
+
+              <motion.div
+                whileHover={{
+                  scale: "1.2",
+                  textShadow: "0px 0px 8px rgb(255,255,255)",
+                  boxShadow: "0px 0px 8px rgb(255,255,255)",
                 }}
-              >
-                -
-              </button>
-              <button
-                className="btn btn-outline-primary"
-                onClick={() => {
-                  dispatch(removeProduct(item.id));
-                  // dispatch(addToCart(item.id));
-                  // else alert("no stock avaiable for this account");
-                }}
-              >
-                remove
-              </button>
+              ><button
+              className="btn btn-outline-danger m-1"
+              onClick={() => {
+                dispatch(removeProduct(item.id));
+              }}
+            >
+              remove
+            </button>
+                </motion.div>
+              
             </div>
           </div>
         </div>
