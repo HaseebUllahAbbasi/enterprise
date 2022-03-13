@@ -10,7 +10,7 @@ const Cart = ()=>
         <div className="row">
 
                 {
-                    cart ? cart.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />): <div className="display-1">
+                    cart.length ? cart.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />): <div className="display-1">
                         No Items
                         </div> 
                 }

@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link,useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = () => 
+{
+  const navigate = useNavigate();
+  const [searchTerm,setTerm] = useState(""); 
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -91,12 +95,21 @@ const Header = () => {
                 </a>
               </li>
             </ul>
-            <form className="d-flex">
+            <form className="d-flex" onSubmit={(e)=>{
+                e.preventDefault();
+                navigate(`/search/${searchTerm}`)
+                console.log(e)
+            }}>
               <input
+              value={searchTerm}
                 className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                onChange={(e)=>
+                {
+                  setTerm(e.target.value);
+                }}
               />
               <button className="btn btn-outline-success" type="submit">
                 Search
