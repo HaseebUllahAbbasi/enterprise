@@ -1,3 +1,4 @@
+const e = require("express");
 const express = require("express");
 const mongoose = require("mongoose");
 
@@ -36,6 +37,7 @@ const model_person = mongoose.model("Person", PersonSchema);
 
 app.get("/", async (req, res) => {
   const list_data = await model_person.find();
+  
   res.status(200).json({
     success: true,
     message: "this is message",
@@ -52,6 +54,27 @@ app.get("/:name", async (req, res) => {
     list_data,
   });
 });
+app.put("/", async (req,res)=>
+{
+  const { id,name, email } = req.body;
+  const dataUpdate = await model_person.updateOne({_id:id }, {
+    name: name,
+    email: email
+  })
+  if(dataUpdate.updatedCount)
+  res.status(200).json({
+    success:true,
+    message: "updated"
+  })
+  else
+  res.status(200).json({
+    success:true,
+    message: "not updated updated"
+  })
+
+  
+
+})
 
 app.post("/", async (req, res) => {
   const { name, email } = req.body;
@@ -59,13 +82,13 @@ app.post("/", async (req, res) => {
     name: name,
     email: email,
   });
+
   res.status(200).json({
     success: true,
     message: "data created ",
     data_created,
   });
 });
-
 app.listen(3000, () => {
   console.log("server started on port  3000 ,  ");
 });

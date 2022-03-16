@@ -5,7 +5,7 @@ import data_home from "./home_data";
 const ProductDetail = (props) => 
 {
     const { id } = useParams();
-    const product = data_home.filter(item => item.id === id)
+    const product = data_home.filter(item => item.id == id)
     return (
         <div className="col-md-6 col-sm-12 offset-md-3 mt-5">
             <div className="card">

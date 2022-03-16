@@ -54,10 +54,16 @@ const Header = () =>
 
 
               <li className="nav-item">
-                <Link to={"/receipt"} className="nav-link " aria-current="page">
+                <Link to={"/receipt"} className="nav-link" aria-current="page">
                   Receipt
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link to={"/category"} className="nav-link" aria-current="page">
+                  Categories
+                </Link>
+              </li>
+              
               
               <li className="nav-item dropdown">
                 <a
@@ -77,10 +83,11 @@ const Header = () =>
                     </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
+                  <Link to={"/crud"} className="dropdown-item" >
+                    Crud Basic
+                    </Link>
                   </li>
+
                   <li>
                     <hr className="dropdown-divider" />
                   </li>

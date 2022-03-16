@@ -1,7 +1,6 @@
-import data_home from "./home_data";
 import Product from "./Product";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { setAllProducts } from "./actions/productAction";
 import { motion } from "framer-motion";
