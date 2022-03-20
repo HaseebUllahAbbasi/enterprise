@@ -1,9 +1,9 @@
-const e = require("express");
 const express = require("express");
 const mongoose = require("mongoose");
-
+const cors = require('cors');
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 const connectDatabase = () => {
   mongoose.connect(
@@ -45,7 +45,17 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.get("/:name", async (req, res) => {
+app.delete("/:id", async (req, res) => 
+{
+  const { id } = req.params;
+  const deleted = await model_person.findByIdAndDelete(id)
+  res.status(200).json({
+    success: true,
+    message: "Deleted",
+  });
+});
+app.get("/:name", async (req, res) => 
+{
   const { name } = req.params;
   const list_data = await model_person.find({ name: name });
   res.status(200).json({
@@ -61,6 +71,7 @@ app.put("/", async (req,res)=>
     name: name,
     email: email
   })
+
   if(dataUpdate.updatedCount)
   res.status(200).json({
     success:true,
@@ -89,6 +100,6 @@ app.post("/", async (req, res) => {
     data_created,
   });
 });
-app.listen(3000, () => {
+app.listen(3001 || 3002 , () => {
   console.log("server started on port  3000 ,  ");
 });
