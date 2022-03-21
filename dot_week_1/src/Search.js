@@ -15,7 +15,7 @@ const Search = () =>
         {term != undefined
           ? products.map(
               (item) =>
-                item.name.match(term) != null && (
+                item.name.toLowerCase().match(term.toLowerCase()) != null && (
                   <Product key={item.id} item={item} />
                 )
             )
