@@ -16,6 +16,7 @@ import Counter from './Counter';
 import CrudBasic from './CrudBasic';
 import Categories from './Categories';
 import Cat_1 from './categories_hard/Cat_1';
+import Form_dot from './Components/Form_dot';
 
 function App() 
 {
@@ -38,7 +39,8 @@ function App()
         <Route path='/category' element={ <Categories/>} >
                 <Route path=':cat' element={<Cat_1></Cat_1>} />
         </Route>
-
+        <Route path='/form' element={ <Form_dot/>} />
+        
         <Route path='/receipt/' element={ <Receipt/>} />
         <Route path='/crud' element={ <CrudBasic/>} />
         <Route path='/dot_prc' element={ <Counter/>} />
