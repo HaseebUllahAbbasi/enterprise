@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 const CrudBasic = () => {
   const [name, setName] = useState("");
@@ -14,7 +15,16 @@ const CrudBasic = () => {
 
   return (
     <>
-      <main className="container">
+       <motion.div
+      className="container mt-5"
+      animate={{ y: 30 }}
+      transition={{
+        type: "spring",
+        delay: 0.01,
+        duration: 2,
+        stiffness: 190,
+      }}
+    >
         <div className="container ">
           <div className="row my-3">
             <div className="col-md-6 offset-md-3  col-sm-12 col-xs-12">
@@ -110,7 +120,7 @@ const CrudBasic = () => {
         <div className="row">
           {data &&
             data.list_data.map((item) => (
-              <div key={item._id} className="col-md-4 col-sm-6 my-3 col-xs-12">
+              <motion.div whileHover={{scale:1.2} } key={item._id} className="col-md-4 col-sm-6 my-3 col-xs-12">
                 <div className="card">
                   <div className="card-header">{item.name}</div>
                   <div className="card-body">{JSON.stringify(item)}</div>
@@ -146,11 +156,12 @@ const CrudBasic = () => {
                             </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
         </div>
-      </main>
+      </motion.div>
     </>
   );
 };
 export default CrudBasic;
+ 

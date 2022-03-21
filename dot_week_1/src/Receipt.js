@@ -1,7 +1,5 @@
 import { useState } from "react";
-// import { Document, Page } from "react-pdf";
 import { motion } from "framer-motion";
-import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer';
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -17,7 +15,7 @@ const Receipt = () => {
       <motion.div
         animate={{ y: 20 }}
         transition={{ type: "spring", stiffness: 1000 }}
-        >
+      >
         <div>
           <div className="text-center mt-2">
             <button
@@ -72,6 +70,21 @@ const Receipt = () => {
         </div>
       </motion.div>
     );
-  else return <>No Items Purchased yet</>;
+  else
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: 0.01,
+          duration: 0.5,
+          stype: "spring",
+          stiffness: 120,
+        }}
+        className={"display-2 text-center"}
+      >
+        No Items Purchased yet
+      </motion.div>
+    );
 };
 export default Receipt;

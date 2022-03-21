@@ -10,12 +10,7 @@ const Product = (props) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{
-        delay: 0.01,
-        duration: 0.5,
-        stype: "spring",
-        stiffness: 120,
-      }}
+     
       whileHover={{
         scale: 1.1,
         textShadow: "0px 0px 10px rgb(255,255,255)",
@@ -47,12 +42,12 @@ const Product = (props) => {
                 <button className="btn btn-outline-success ">
                   View Details
                 </button>
-              </Link>
+              </Link>  
               <motion.button
                 whileHover={{ scale: 1.2 }}
                 className="btn btn-outline-primary"
-                onClick={() => {
-                  if (item.present > 0) dispatch(addToCart(item.id));
+                onClick={() => { 
+                  if (item.present >  0) dispatch(addToCart(item.id));
                   else alert("no stock avaiable for this account");
                 }}
               >

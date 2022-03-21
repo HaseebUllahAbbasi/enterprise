@@ -27,12 +27,12 @@ const Header = () =>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
+            <motion.li className="nav-item" whileHover={{scale:1.1, originX:0}}>
                               <Link to={"/"} className="nav-link " aria-current="page">
                   Home
                 </Link>
               </motion.li>
-              <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
+              <motion.li className="nav-item" whileHover={{scale:1.1, originX:0}}>
               
                 <Link
                   to={"/products"}
@@ -43,25 +43,25 @@ const Header = () =>
                 </Link>
               </motion.li>
 
-              <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
+              <motion.li className="nav-item" whileHover={{scale:1.1, originX:0}}>
                 <Link to={"/about"} className="nav-link " aria-current="page">
                   About
                 </Link>
               </motion.li>
 
-              <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
+              <motion.li className="nav-item" whileHover={{scale:1.1, originX:0}}>
                 <Link to={"/cart"} className="nav-link " aria-current="page">
                   Cart
                 </Link>
               </motion.li>
 
 
-              <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
+              <motion.li className="nav-item" whileHover={{scale:1.1, originX:0}}>
                 <Link to={"/receipt"} className="nav-link" aria-current="page">
                   Receipt
                 </Link>
               </motion.li>
-              <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
+              <motion.li className="nav-item" whileHover={{scale:1.1, originX:0}}>
               
                 <Link to={"/category"} className="nav-link" aria-current="page">
                   Categories
@@ -81,18 +81,18 @@ const Header = () =>
                   Dropdown
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <motion.li  whileHover={{scale:1.2, originX:0}}>
+                <motion.li  whileHover={{scale:1.1, originX:0}}>
                 <Link to={"/dot_prc"} className="dropdown-item" >
                     dot_prc
                     </Link>
                   </motion.li>
-                  <motion.li  whileHover={{scale:1.2, originX:0}}>
+                  <motion.li  whileHover={{scale:1.1, originX:0}}>
                 
                   <Link to={"/crud"} className="dropdown-item" >
                     Crud Basic
                     </Link>
                   </motion.li>
-                  <motion.li  whileHover={{scale:1.2, originX:0}}>
+                  <motion.li  whileHover={{scale:1.1, originX:0}}>
                 
                   <Link to={"/form"} className="dropdown-item" >
                     Form
@@ -104,7 +104,7 @@ const Header = () =>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
-                  <motion.li  whileHover={{scale:1.2, originX:0}}>
+                  <motion.li  whileHover={{scale:1.1, originX:0}}>
                 
                     <a className="dropdown-item" href="#">
                       Something else here
