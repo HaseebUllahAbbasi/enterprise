@@ -13,7 +13,14 @@ const CartItem = (props) => {
   const { item } = props;
   return (
     <div className="col-md-4 col-lg-3 col-xs-12 col-sm-6 mb-3 ">
-      <div className="card" style={{ height: "40vh", margin: "15px" }}>
+      <motion.div whileHover={{
+        scale:1.06,
+        textShadow:"0px 0px 10px rgb(255,255,255)",
+        boxShadow:"0px 0px 10px rgb(255,255,255)"
+    }}
+
+    >
+      <div className="card" style={{ height: "100%", margin: "15px" }}>
         <div className="text-center my-1">
           <img
             src={item.imgSrc}
@@ -30,8 +37,16 @@ const CartItem = (props) => {
 
             <div className="d-flex justify-content-between">
               <motion.div
+              //  animate={{
+              //   x: 0,
+              //   y: 0,
+              //   scale: 1.2,
+              //   rotate: 0,
+              // }}
+
+              
                 whileHover={{
-                  scale: "1.2",
+                  scale: 1.2,
                   textShadow: "0px 0px 8px rgb(255,255,255)",
                   boxShadow: "0px 0px 8px rgb(255,255,255)",
                 }}
@@ -39,14 +54,18 @@ const CartItem = (props) => {
                 {" "}
                 <Link to={`/product/${item.id}`}>
                   <button className="btn btn-outline-success m-1">
-                    View Details
+                    View 
                   </button>
                 </Link>
               </motion.div>
 
               <motion.div
+              whileTap={{
+                scale:1.3
+              }}
+
                 whileHover={{
-                  scale: "1.2",
+                  scale: 1.2,
                   textShadow: "0px 0px 8px rgb(255,255,255)",
                   boxShadow: "0px 0px 8px rgb(255,255,255)",
                 }}
@@ -64,7 +83,7 @@ const CartItem = (props) => {
               </motion.div>
               <motion.div
                 whileHover={{
-                  scale: "1.2",
+                  scale: 1.2,
                   textShadow: "0px 0px 8px rgb(255,255,255)",
                   boxShadow: "0px 0px 8px rgb(255,255,255)",
                 }}
@@ -84,7 +103,7 @@ const CartItem = (props) => {
 
               <motion.div
                 whileHover={{
-                  scale: "1.2",
+                  scale: 1.2,
                   textShadow: "0px 0px 8px rgb(255,255,255)",
                   boxShadow: "0px 0px 8px rgb(255,255,255)",
                 }}
@@ -102,6 +121,8 @@ const CartItem = (props) => {
           </div>
         </div>
       </div>
+      
+      </motion.div>
     </div>
   );
 };

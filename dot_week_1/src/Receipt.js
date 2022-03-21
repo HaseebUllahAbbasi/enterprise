@@ -1,6 +1,7 @@
 import { useState } from "react";
 // import { Document, Page } from "react-pdf";
 import { motion } from "framer-motion";
+import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer';
 
 import { useDispatch, useSelector } from "react-redux";
 

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 const Counter = () => {
   const [number, setNum] = useState(0);
@@ -11,28 +12,32 @@ const Counter = () => {
 }, [number]);
   // it will be called as the compoment did update
 
+  
   return (
-    <div className="display-4">
+    <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.5, duration:3}} className="col-md-4 offset-md-4 col-sm-12 col-xs-12">
+
+<div className="display-4">
       Counter Practice With UseEffect
-      <div className="text-center mt-5">number is {number}</div>
+      <motion.div transition={{stype:"keyframes", stiffness:190 }} className="text-center mt-5">number is {number}</motion.div>
       <div className="row p-5">
-            <button className="btn btn-info m-3" onClick={()=>
+            <motion.button whileHover={{scale:1.2}} className="btn btn-info m-3" onClick={()=>
             {
                 setNum(number+1);
 
             }}>
                 +
-            </button>
-            <button className="btn btn-info m-3" onClick={()=>
+            </motion.button>
+            <motion.button whileHover={{scale:1.2}} className="btn btn-info m-3" onClick={()=>
             {
                 setNum(number-1);
                 
             }}>
                 -
-            </button>
+            </motion.button>
             
       </div>
     </div>
+    </motion.div>
   );
 };
 export default Counter;

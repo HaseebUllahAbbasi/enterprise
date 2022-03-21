@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import ItemAnimate from "./HOC/ItemAnimate";
 
 const Header = () => 
 {
@@ -25,12 +27,13 @@ const Header = () =>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link to={"/"} className="nav-link " aria-current="page">
+            <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
+                              <Link to={"/"} className="nav-link " aria-current="page">
                   Home
                 </Link>
-              </li>
-              <li className="nav-item">
+              </motion.li>
+              <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
+              
                 <Link
                   to={"/products"}
                   className="nav-link "
@@ -38,31 +41,32 @@ const Header = () =>
                 >
                   Products
                 </Link>
-              </li>
+              </motion.li>
 
-              <li className="nav-item">
+              <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
                 <Link to={"/about"} className="nav-link " aria-current="page">
                   About
                 </Link>
-              </li>
+              </motion.li>
 
-              <li className="nav-item">
+              <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
                 <Link to={"/cart"} className="nav-link " aria-current="page">
                   Cart
                 </Link>
-              </li>
+              </motion.li>
 
 
-              <li className="nav-item">
+              <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
                 <Link to={"/receipt"} className="nav-link" aria-current="page">
                   Receipt
                 </Link>
-              </li>
-              <li className="nav-item">
+              </motion.li>
+              <motion.li className="nav-item" whileHover={{scale:1.2, originX:0}}>
+              
                 <Link to={"/category"} className="nav-link" aria-current="page">
                   Categories
                 </Link>
-              </li>
+              </motion.li>
               
               
               <li className="nav-item dropdown">
@@ -77,25 +81,35 @@ const Header = () =>
                   Dropdown
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <Link to={"/dot_prc"} className="dropdown-item" >
+                <motion.li  whileHover={{scale:1.2, originX:0}}>
+                <Link to={"/dot_prc"} className="dropdown-item" >
                     dot_prc
                     </Link>
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li  whileHover={{scale:1.2, originX:0}}>
+                
                   <Link to={"/crud"} className="dropdown-item" >
                     Crud Basic
                     </Link>
-                  </li>
+                  </motion.li>
+                  <motion.li  whileHover={{scale:1.2, originX:0}}>
+                
+                  <Link to={"/form"} className="dropdown-item" >
+                    Form
+                    </Link>
+
+                  </motion.li>
+                  
 
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
-                  <li>
+                  <motion.li  whileHover={{scale:1.2, originX:0}}>
+                
                     <a className="dropdown-item" href="#">
                       Something else here
                     </a>
-                  </li>
+                  </motion.li>
                 </ul>
               </li>
               <li className="nav-item">

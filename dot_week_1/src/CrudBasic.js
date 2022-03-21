@@ -62,6 +62,8 @@ const CrudBasic = () => {
                         console.error("Error:", error);
                       });
                     setData(0);
+                    setName("");
+                    setemail(""); 
                   }}
                 >
                   Update
@@ -72,6 +74,11 @@ const CrudBasic = () => {
                   hidden={submit}
                   className="btn btn-primary"
                   onClick={() => {
+                    if(name=="" || email=="")
+                    {
+                      alert("Please Enter Data");
+                      return;
+                    }
                     const data = { name: name, email: email };
 
                     fetch(`http://localhost:3001/`, {
@@ -89,6 +96,8 @@ const CrudBasic = () => {
                         console.error("Error:", error);
                       });
                     setData(0);
+                    setName("");
+                    setemail("");
                   }}
                 >
                   Submit
