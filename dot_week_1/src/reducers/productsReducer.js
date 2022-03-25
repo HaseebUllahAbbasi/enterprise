@@ -12,9 +12,9 @@ export const productReducer = (state = { products: [] }, action) => {
   switch (action.type) {
     case ADD_ALL:
       return { ...state, products: [...action.payload.data], cart: [] };
-      case GET_ALL:
-        return { ...state };
-        
+    case GET_ALL:
+      return { ...state };
+
     case ADD_PRODUCT: {
       const id = action.payload;
       const products = [...state.products];
@@ -27,15 +27,13 @@ export const productReducer = (state = { products: [] }, action) => {
       //finding the
       const index = cart.findIndex((item) => item.id == id);
       let newCart = [];
-      if (index == -1) 
-      {
+      if (index == -1) {
         products[id - 1].qty = 1;
         cart.push(products[id - 1]);
       } else
         newCart = cart.map((item) => {
           if (item.id === id) {
             item.qty += 1;
-
           }
           return item;
         });
@@ -56,7 +54,6 @@ export const productReducer = (state = { products: [] }, action) => {
       cart.map((item) => {
         if (item.id === id) {
           item.qty += 1;
-        
         }
         return item;
       });
@@ -69,27 +66,24 @@ export const productReducer = (state = { products: [] }, action) => {
 
       const index = cart.findIndex((item) => item.id == id);
       let newCart = [];
-       
-        cart[index].qty -= 1;
-       
+
+      cart[index].qty -= 1;
 
       products[id - 1].present = products[id - 1].present + 1;
-       return { ...state, products, cart };
-       
+      return { ...state, products, cart };
     }
     case REMOVE_PRODUCT: {
       const id = action.payload;
       const products = [...state.products];
       const cart = [...state.cart];
-      let newCart = []; 
+      let newCart = [];
       const index = cart.findIndex((item) => item.id == id);
       products[id - 1].present = products[id - 1].present + cart[index].qty;
 
       products[id - 1].qty = 0;
-        newCart = cart.filter((item) => item.id != id);
-      
-      
-        return { ...state, products, cart: newCart };
+      newCart = cart.filter((item) => item.id != id);
+
+      return { ...state, products, cart: newCart };
     }
 
     default:

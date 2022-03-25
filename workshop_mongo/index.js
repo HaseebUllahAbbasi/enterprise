@@ -1,8 +1,12 @@
 const express = require("express");
+
 const mongoose = require("mongoose");
 const cors = require('cors');
+
 const app = express();
 app.use(express.json());
+
+
 app.use(cors())
 
 const connectDatabase = () => {
@@ -35,6 +39,12 @@ const PersonSchema = new mongoose.Schema({
 });
 const model_person = mongoose.model("Person", PersonSchema);
 
+app.get("/test",(req,res)=>
+{
+  res.status(200).json({
+    message:"test is successfull"
+  })
+})
 app.get("/", async (req, res) => {
   const list_data = await model_person.find();
   
@@ -100,6 +110,7 @@ app.post("/", async (req, res) => {
     data_created,
   });
 });
+
 app.listen(3001 || 3002 , () => {
-  console.log("server started on port  3000 ,  ");
+  console.log("server started    ,  ");
 });
