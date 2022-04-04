@@ -38,8 +38,6 @@ export const productReducer = (state = { products: [] }, action) => {
           return item;
         });
 
-      //     console.log(state)
-      //   return { ...state, ...cart, ...products };
       if (index == -1) return { ...state, products, cart: cart };
       else return { ...state, products, cart: newCart };
     }
