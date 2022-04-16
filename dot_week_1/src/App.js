@@ -18,6 +18,7 @@ import Categories from './Categories';
 import Cat_1 from './categories_hard/Cat_1';
 import Form_dot from './Components/Form_dot';
 import Cat_2 from './categories_hard/Cat_2';
+import Pagination from './Components/Pagination';
 
 function App() 
 {
@@ -38,6 +39,7 @@ function App()
         <Route path='/search/:term' element={ <Search/>} />
         <Route path='/search/' element={ <Search/>} />
         <Route path='/category' element={ <Categories/>} >
+
                 <Route index  element={<Cat_2></Cat_2>} />
 
                 <Route path='cat' element={<Cat_1></Cat_1>} />
@@ -45,10 +47,13 @@ function App()
 
         </Route>
         <Route path='/form' element={ <Form_dot/>} />
+
         
         <Route path='/receipt/' element={ <Receipt/>} />
         <Route path='/crud' element={ <CrudBasic/>} />
         <Route path='/dot_prc' element={ <Counter/>} />
+        <Route path='/pagination' element={ <Pagination/>} />
+
         <Route path='*' element={ <> <div className='display-1 text-center'> 404  </div> </>} />
       </Routes>
     </Router>

@@ -195,7 +195,7 @@ const CrudBasic = () => {
                   </div>
                 </div>
               </motion.div>
-            )): <div> <Lottie className="card card-body" options={defaultOptions}
+            )): <div> <Lottie width={"400px"} className="card card-body" options={defaultOptions}
            
             isStopped={false}
             isPaused={false}/>  </div>

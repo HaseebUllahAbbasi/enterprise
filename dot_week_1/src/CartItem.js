@@ -37,13 +37,6 @@ const CartItem = (props) => {
 
               <div className="d-flex justify-content-between">
                 <motion.div
-                  //  animate={{
-                  //   x: 0,
-                  //   y: 0,
-                  //   scale: 1.2,
-                  //   rotate: 0,
-                  // }}
-
                   whileHover={{
                     scale: 1.2,
                     textShadow: "0px 0px 8px rgb(255,255,255)",
