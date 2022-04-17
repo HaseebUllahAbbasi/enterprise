@@ -69,12 +69,15 @@ const Pagination = () => {
             </motion.div>
           ))}
         </div>
-      </div>
-      <Pages
+        <div className="col-4 offset-4 my-3 mb-5">
+        <Pages
         itemsCount={posts.length}
         pageSize={10}
         onPageChange={pageChange}
       />
+        </div>
+      </div>
+              
     </React.Fragment>
   );
 };

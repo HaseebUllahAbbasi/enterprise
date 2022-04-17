@@ -3,13 +3,16 @@ import { motion } from "framer-motion";
 
 import { useDispatch, useSelector } from "react-redux";
 
+import PrintingComponent from "./Components/ComponentPrint";
+
 const Receipt = () => {
+
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.productReducer);
-  console.log(cart);
+  // console.log(cart);
   if (cart && cart.length != 0)
     return (
       <motion.div
@@ -17,18 +20,20 @@ const Receipt = () => {
         transition={{ type: "spring", stiffness: 1000 }}
       >
         <div>
-          <div className="text-center mt-2">
-            <button
+          <div className="text-center mt-2 p-4">
+          <PrintingComponent cart={cart} />
+
+            {/* <button
               className="btn btn-success"
               onClick={() => {
                 alert("print in process");
               }}
             >
               Print
-            </button>
+            </button> */}
           </div>
           <div className="m-1 p-1">
-            <table className="table table-dark mt-3">
+            {/* <table className="table table-dark mt-3">
               <thead>
                 <tr className="table-dark">
                   <td className="table-dark">Id</td>
@@ -66,8 +71,10 @@ const Receipt = () => {
                 </tr>
               </tbody>
             </table>
+           */}
           </div>
         </div>
+        
       </motion.div>
     );
   else
