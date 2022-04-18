@@ -6,6 +6,7 @@ import Product from "./Product";
 const Cart = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.productReducer);
+  cart.sort((a, b) => a.id - b.id);
   return (
     <div className="row">
       {cart.length ? (
