@@ -1,13 +1,12 @@
 const express = require("express");
 
 const mongoose = require("mongoose");
-const cors = require('cors');
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
 
-
-app.use(cors())
+app.use(cors());
 
 const connectDatabase = () => {
   mongoose.connect(
@@ -26,6 +25,7 @@ const connectDatabase = () => {
   );
 };
 connectDatabase();
+
 //creating the model in order to mantain the data integrity
 const PersonSchema = new mongoose.Schema({
   name: {
@@ -39,15 +39,14 @@ const PersonSchema = new mongoose.Schema({
 });
 const model_person = mongoose.model("Person", PersonSchema);
 
-app.get("/test",(req,res)=>
-{
+app.get("/test", (req, res) => {
   res.status(200).json({
-    message:"test is successfull"
-  })
-})
+    message: "test is successfull",
+  });
+});
 app.get("/", async (req, res) => {
   const list_data = await model_person.find();
-  
+
   res.status(200).json({
     success: true,
     message: "this is message",
@@ -55,17 +54,15 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.delete("/:id", async (req, res) => 
-{
+app.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const deleted = await model_person.findByIdAndDelete(id)
+  const deleted = await model_person.findByIdAndDelete(id);
   res.status(200).json({
     success: true,
     message: "Deleted",
   });
 });
-app.get("/:name", async (req, res) => 
-{
+app.get("/:name", async (req, res) => {
   const { name } = req.params;
   const list_data = await model_person.find({ name: name });
   res.status(200).json({
@@ -74,28 +71,27 @@ app.get("/:name", async (req, res) =>
     list_data,
   });
 });
-app.put("/", async (req,res)=>
-{
-  const { id,name, email } = req.body;
-  const dataUpdate = await model_person.updateOne({_id:id }, {
-    name: name,
-    email: email
-  })
+app.put("/", async (req, res) => {
+  const { id, name, email } = req.body;
+  const dataUpdate = await model_person.updateOne(
+    { _id: id },
+    {
+      name: name,
+      email: email,
+    }
+  );
 
-  if(dataUpdate.updatedCount)
-  res.status(200).json({
-    success:true,
-    message: "updated"
-  })
+  if (dataUpdate.updatedCount)
+    res.status(200).json({
+      success: true,
+      message: "updated",
+    });
   else
-  res.status(200).json({
-    success:true,
-    message: "not updated updated"
-  })
-
-  
-
-})
+    res.status(200).json({
+      success: true,
+      message: "not updated updated",
+    });
+});
 
 app.post("/", async (req, res) => {
   const { name, email } = req.body;
@@ -111,6 +107,6 @@ app.post("/", async (req, res) => {
   });
 });
 
-app.listen(3001 || 3002 , () => {
+app.listen(3001 || 3002, () => {
   console.log("server started    ,  ");
 });
