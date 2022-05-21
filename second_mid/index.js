@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static("public"));
 
 // defined the view engine as ejs 
-app.use('view engine','ejs');
+app.set('view engine','ejs');
 
 /**
  *  

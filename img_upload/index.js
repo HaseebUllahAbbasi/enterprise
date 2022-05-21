@@ -3,11 +3,13 @@ const app = express();
 const ejs = require("ejs");
 const path = require("path");
 const fileUpload = require("express-fileupload");
-// app.use(express.json());
+app.use(express.json());
+app.use(fileUpload());
+
 const bodyParser = require("body-parser");
 
-app.use(fileUpload);
-app.use(bodyParser.json()).use(
+app.use(bodyParser.json());
+app.use(
   bodyParser.urlencoded({
     extended: true,
   })
@@ -17,12 +19,13 @@ app.use(bodyParser.json()).use(
 // app.use(bodyParser.urlencoded({ extended: true }));
 // defined the view engine as ejs
 // app.use("view engine", "ejs");
-// app.set(express.static("public"));
+app.set(express.static("public"));
 
-app.set("views", path.join(__dirname, "./views"));
-app.set("view engine", "ejs");
+// app.use("views", path.join(__dirname, "views"));
+app.use(express.static("public"));
 
-// app.use(express.static(path.join(__dirname, "public")));
+// defined the view engine as ejs 
+app.set('view engine','ejs');
 
 const mongoose = require("mongoose");
 
@@ -46,7 +49,7 @@ connectDatabase();
 const StudentSchema = new mongoose.Schema({
   name: {
     type: String,
-    // required: [true, "please Enter Name"],
+    required: [true, "please Enter Name"],
   },
   email: {
     type: String,
@@ -58,17 +61,40 @@ const StudentSchema = new mongoose.Schema({
 });
 const model_person = mongoose.model("Student", StudentSchema);
 
-app.get("/", (req, res) => {
-  res.render("home");
+app.get("/", async (req, res) => 
+{
+  const data = await model_person.find()
+  res.render("home",{data: data});
+  console.log(data)
 });
 app.get("/insert", (req, res) => {
   res.render("insert");
 });
-app.post("/save", (req, res) => {
+app.post("/save", async (req, res) => {
   // res.render("insert");
-  console.log(req.body);
+  // console.log(req.files);
+  // console.log(req.body);
+  const {name,email }= req.body;
+  const file_obj = req.files.img;
+  const savedData = await model_person.create({
+    name,email,img:file_obj.name
+  })
+  file_obj.mv(`./public/img/`+file_obj.name, async (e)=>
+  {
+    if(e)
+    {
+     
+      console.log("image uploaded error");
+      
+    }
+    else
+    {
+      console.log("image uploaded");
+    }
+  })
+
   //   console.log(req.files);
-  res.send("sahi");
+  res.render("home")
 });
 
 app.listen(4000, () => {
