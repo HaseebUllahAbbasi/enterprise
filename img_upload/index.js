@@ -19,16 +19,16 @@ app.use(bodyParser.json()).use(
 // app.use("view engine", "ejs");
 // app.set(express.static("public"));
 
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
 
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 
 const mongoose = require("mongoose");
 
 const connectDatabase = () => {
   mongoose.connect(
-    "mongodb://localhost/data_base",
+    "mongodb://localhost/img_upload",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
