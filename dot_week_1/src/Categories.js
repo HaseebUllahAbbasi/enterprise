@@ -16,16 +16,15 @@ const Categories = () => {
       }}
       className="container"
     >
-      
       <p className="display-3 text-center">Categories Page</p>
       <ul>
         {
-          <motion.li whileHover={{scale:1.4, originX:0 }}>
+          <motion.li whileHover={{ scale: 1.4, originX: 0 }}>
             <Link to={`/category/all`}> All </Link>
           </motion.li>
         }
         {cat_list.map((item, i) => (
-          <motion.li whileHover={{scale:1.4 ,originX:0}} key={i}>
+          <motion.li whileHover={{ scale: 1.4, originX: 0 }} key={i}>
             {" "}
             <Link to={`/category/${item}`}> {item} </Link>{" "}
           </motion.li>

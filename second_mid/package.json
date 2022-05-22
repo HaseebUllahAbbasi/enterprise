@@ -1,0 +1,17 @@
+{
+  "name": "second_mid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}

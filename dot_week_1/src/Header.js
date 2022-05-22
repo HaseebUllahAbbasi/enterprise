@@ -100,7 +100,16 @@ const Header = () =>
 
                   </motion.li>
                   
+                  
+                  <motion.li  whileHover={{scale:1.1, originX:0}}>
+                
+                <Link to={"/pagination"} className="dropdown-item" >
+                    Pagination 
+                  </Link>
 
+                </motion.li>
+                
+                
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
