@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <title>Users</title>
+</head>
+
+<body>
+    <%- include('layout/navbar')%>
+    <div class="container">
+        <div class="row mt-5">
+            <% for(let i=0; i<data.length; i++){ %>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-title text-center">
+                            <h4>
+                                <%=data[i].name%> <br>
+                                    <%=data[i].email%>
+                            </h4>
+                        </div>
+                        <%if(data[i].image){%>
+                            <div class="card-body text-center">
+                                <img src="/img/<%=data[i].image%>" load="lazy" width="200px" alt="img">
+                            </div>
+                            <%}%>
+                                <div class="card-footer d-flex justify-content-around">
+                                    <a href="/delete/<%=data[i]._id%>">
+                                        <button class="btn btn-danger">Delete</button>
+                                    </a>
+                                    <a href="/user/<%=data[i]._id%>">
+                                        <button class="btn btn-info"> Update</button>
+                                    </a>
+                                </div>
+                    </div>
+                </div>
+                <%}%>
+        </div>
+    </div>
+</body>
+
+</html>
