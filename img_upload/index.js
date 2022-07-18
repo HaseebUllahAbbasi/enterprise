@@ -94,7 +94,7 @@ app.post("/save", async (req, res) => {
   })
 
   //   console.log(req.files);
-  res.render("home")
+  res.redirect("/")
 });
 
 app.listen(4000, () => {
