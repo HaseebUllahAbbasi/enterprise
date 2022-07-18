@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white mx-5 px-5">
+    <a class="navbar-brand text-white" href="/">CRUD-IN-EJS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="/"><b>Home</b> </a>
+            </li>
+            <%if(isCurrentlySignIn){%>
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="/products"><b>ALL Products</b> </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-white" href="/insert"><b>New Product</b></a>
+                </li>
+            <%}%>
+        </ul>
+        <!-- <form action="/table" method="post" class="form-inline my-2 my-lg-0 d-flex justify-content-between ">
+            <input class="form-control mr-sm-2 mx-2" name="name" type="search" placeholder="Search User By Name" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Search</button>
+        </form> -->
+        <div class="form-inline my-2 my-lg-0 d-flex justify-content-between "> 
+            <%if(!isCurrentlySignIn){%>
+                <a class="btn btn-outline-success my-2 my-sm-0 mx-2" href="/signin" type="submit">Sign in</a>
+                <a class="btn btn-outline-success my-2 my-sm-0 " href="/signup" type="submit">Sign up</a>
+            <%} else{%>
+                <a class="btn btn-outline-success my-2 my-sm-0 " href="/logout" type="submit">Logout</a>
+            <%}%>
+        </div>
+
+    </div>
+</nav>
