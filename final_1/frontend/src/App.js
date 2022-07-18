@@ -15,12 +15,13 @@ function App() {
       <Router>
          <Navbar></Navbar>
          <Routes>
-         <Route path='/signup' element={<Signup />} />
             <Route element={<ProtectedRoute />}>
                <Route path='/' element={<Home />} />
                <Route path='/userdata' element={<UserData />} />
                <Route path='/update/:id' element={< Update/>} />
             </Route>
+            
+               <Route path='/signup' element={<Signup />} />
                <Route path='/signin' element={<Signin />} />
          </Routes>
       </Router>
