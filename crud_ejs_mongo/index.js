@@ -3,6 +3,7 @@ const app = express();
 const ejs = require("ejs");
 const path = require("path");
 const fileUpload = require("express-fileupload");
+
 app.use(express.json());
 app.use(fileUpload());
 
@@ -14,7 +15,13 @@ app.use(
     extended: true,
   })
 );
-
+const validateMiddleware = (req, res, next) => {
+  const { Username, Password } = req.body;
+  if (!Username || !Password ) {
+    return res.redirect("/signup");
+  }
+  next();
+};
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 // defined the view engine as ejs
@@ -46,6 +53,17 @@ const connectDatabase = () => {
   );
 };
 connectDatabase();
+const UserSchema=new mongoose.Schema({
+  Username:{
+    type:String,
+    required:true
+  },
+  Password:{
+    type:String,
+    required:true
+  }
+})
+const User=mongoose.model("User",UserSchema);
 const StudentSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -70,6 +88,11 @@ app.get("/", async (req, res) =>
 app.get("/insert", (req, res) => {
   res.render("insert");
 });
+app.post('/save/user',validateMiddleware,function(req,res){
+  User.create(req.body,function(err){
+    res.redirect('/')
+  })
+})
 
 app.post("/save", async (req, res) => {
   // res.render("insert");
@@ -97,6 +120,12 @@ app.post("/save", async (req, res) => {
   //   console.log(req.files);
    res.redirect("/")
 });
+app.get('/signin',function(req,res){
+  res.render('signin')
+})
+app.get('/signup',function(req,res){
+  res.render('signup')
+})
 app.get('/delete/:id', async (req,res)=>
 {
   const {id} = req.params;
