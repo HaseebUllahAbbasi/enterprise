@@ -15,9 +15,9 @@ function App() {
       <Router>
          <Navbar></Navbar>
          <Routes>
+         <Route path='/signup' element={<Signup />} />
             <Route element={<ProtectedRoute />}>
                <Route path='/' element={<Home />} />
-               <Route path='/signup' element={<Signup />} />
                <Route path='/userdata' element={<UserData />} />
                <Route path='/update/:id' element={< Update/>} />
             </Route>
