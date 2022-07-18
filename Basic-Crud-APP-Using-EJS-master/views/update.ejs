@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <title>Update</title>
+</head>
+
+<body>
+    <div class="row text-center m-3 py-3 bg-dark justify-content-acound">
+        <div class="col-4 offset-2  ">
+            <img src="/img/<%=result.image%>" width="400px" alt="">
+        </div>
+
+        <div class=" col-4 border bg-light ms-5">
+            <form action="/update" method="post" enctype="multipart/form-data" class="row g-3 mt-2 ms-5">
+                <div class="col-auto">
+                    <input type="text" name="name" class="form-control" value="<%=result.name%>" />
+                </div>
+                <div class="col-auto">
+                    <input type="text" name="email" class="form-control" value="<%=result.email%>" />
+                </div>
+                <div class="col-auto">
+                    <input type="file" name="img" class="form-control"/>
+                </div>
+                <div class="col-auto">
+                    <input type="text" hidden name="id" class="form-control" value="<%=result._id%>" />
+                </div>
+                <div class="col-auto d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary mb-3">Update Data</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
